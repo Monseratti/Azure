@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" asp-action="Index" name="files" enctype="multipart/form-data">
+    <input type="file" name="myFile" accept="image/*" />
+    <button class="btn btn-primary">Load</button>
+</form>
+
+@if(ViewBag.FileList.Count>0){
+    <table class="table table-danger col-3">
+        <thead>
+            <tr>
+                <th>File</th>
+                <th>Date</th>
+                <th>Path</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.FileList)
+            {
+                <tr>
+                    <td>@item.name</td>
+                    <td>@item.createdAt</td>
+                    <td>@item.absolutePath</td>
+                    <td>
+                        <form asp-action="Details" method="get" asp-route-id="@item.name">
+                            <button class="btn btn-outline-info">View</button>
+                        </form>
+                        <form asp-action="Delete" method="get" asp-route-id="@item.name">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
