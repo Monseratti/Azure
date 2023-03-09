@@ -9,7 +9,7 @@ namespace HW0703.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 
-		private readonly string downloadPath = $@"~/tmp/";
+		private readonly string downloadPath = $@"/tmp/";
 
 		public HomeController(ILogger<HomeController> logger)
 		{

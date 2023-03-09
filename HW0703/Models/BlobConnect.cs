@@ -52,7 +52,11 @@ namespace HW0703.Models
 				var tmpPath = $@"{Directory.GetCurrentDirectory()}\wwwroot\tmp";
                 var client = CreateContainer("home").GetBlobClient(fileName);
 				Directory.CreateDirectory(tmpPath);
-				await client.DownloadToAsync(tmpPath);
+				using (FileStream fs = File.OpenWrite(Path.Combine(tmpPath, client.Name)))
+				{
+					await client.DownloadToAsync(fs);
+				}
+				//await client.DownloadToAsync(tmpPath);
             }
 			catch (Exception)
 			{
