@@ -37,7 +37,13 @@ namespace HW0903.Models
         {
             var msgs = (await (await GetQueueClient()).ReceiveMessagesAsync(maxMessages:10, visibilityTimeout: TimeSpan.FromSeconds(1))).Value;
             var msg = msgs.Where(ms=>ms.MessageId.Equals(msgID)).FirstOrDefault();
-            await (await GetQueueClient()).DeleteMessageAsync(msg.MessageId, msg.PopReceipt);
+            try
+            {
+                await (await GetQueueClient()).DeleteMessageAsync(msg.MessageId, msg.PopReceipt);
+            }
+            catch (Exception)
+            {
+            }
         }
 
     }
