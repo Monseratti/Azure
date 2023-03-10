@@ -1,0 +1,150 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Lot
+<div >
+    @*<form class="d-flex flex-column mb-5 col-12 col-md-6">*@
+        <label asp-for="Currency"></label>
+        <select asp-for="Currency" class="form-control">
+            <option value="-1">Choose currency...</option>
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+            <option value="EUR">EUR</option>
+            <option value="CNY">CNY</option>
+            <option value="SEK">SEK</option>
+        </select>
+        <label asp-for="Name"></label>
+        <input asp-for=Name placeholder="Seller" />
+        <label asp-for="Value"></label>
+        <input asp-for=Value/>
+        <button type="button" class="btn btn-outline-primary mt-2" onclick="AddLot()">Sell</button>
+    @*</form>*@
+</div>
+
+<select class="form-control" id="currSelector" onchange="Start(event)">
+    <option value="-1">Choose currency...</option>
+    <option value="USD">USD</option>
+    <option value="CAD">CAD</option>
+    <option value="EUR">EUR</option>
+    <option value="CNY">CNY</option>
+    <option value="SEK">SEK</option>
+</select>
+
+<table class="table table-active col-md-6">
+    <thead>
+        <tr>
+            <th>Currency</th>
+            <th>Seller</th>
+            <th>Value</th>
+            <th>Buy</th>
+        </tr>
+    </thead>
+    <tbody id="lotsBody"></tbody>
+</table>
+
+@section Scripts{
+    <script>
+        var intervalID = 0;
+        function Start(e){
+            clearInterval(intervalID);
+            LoadData(e);
+            intervalID = setInterval(LoadData, 10000,e);
+        }
+        async function LoadData(e){
+            let value = e.target.value;
+            if (value==-1) return;
+            let resp = await fetch(`/Home/ReceiveLots?curr=${value}`);
+            if(resp.ok){
+                let list = await resp.json();
+                ClearTable();
+                FillTable(list);
+            }
+            else{
+                console.log("Error");
+            }
+        }
+
+        async function AddLot() {
+            let curr = document.getElementsByName("Currency")[0].value;
+            if (curr == -1){
+                alert("Choose currency");
+                return;
+            }
+            let name = document.getElementsByName("Name")[0].value;
+            if (name == "" || name == " ") {
+                alert("Fill name");
+                return;
+            }
+            let value = document.getElementsByName("Value")[0].value;
+            if (value.includes(".")) {
+                alert("Invalid value, must be of delimiter type 'Comma'");
+                return;
+            }
+            let lot = {"Currency": curr, "Name": name, "Value": value};
+            let resp = await fetch(`/Home/AddLot`,{
+                method:"Post",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(lot)
+            });
+            if (resp.ok) {
+                document.getElementsByName("Currency")[0].value = -1;
+                document.getElementsByName("Name")[0].value = "";
+                document.getElementsByName("Value")[0].value = "";
+            }
+            else {
+                console.log("Error");
+            }
+        }
+
+        function FillTable(lots){
+            let tbody = document.getElementById("lotsBody");
+
+            lots.forEach(oneLot=>{
+                let tr = document.createElement("tr");
+                let tdCurrency = document.createElement("td");
+                tdCurrency.textContent = oneLot.lot.Currency;
+                let tdSeller = document.createElement("td");
+                tdSeller.textContent = oneLot.lot.Name;
+                let tdValue = document.createElement("td");
+                tdValue.textContent = oneLot.lot.Value;
+
+                let tdForm = document.createElement("td");
+
+                let button = document.createElement("button");
+                button.type = "button";
+                button.className = "btn btn-warning";
+                button.textContent = "Buy"
+                button.addEventListener("click",async ()=>{
+                    let resp = await fetch(`/Home/DeleteLot?id=${oneLot.id}`);
+                    if (resp.ok) {
+                        //let list = await resp.json();
+                        //ClearTable();
+                        //FillTable(list);
+                    }
+                    else {
+                        console.log("Error");
+                    }
+                })
+
+                tdForm.appendChild(button);
+
+                tr.appendChild(tdCurrency);
+                tr.appendChild(tdSeller);
+                tr.appendChild(tdValue);
+                tr.appendChild(tdForm);
+                tbody.appendChild(tr);
+            });
+        }
+
+        function ClearTable(){
+            let tbody = document.getElementById("lotsBody");
+            for (let i = tbody.childElementCount-1; i>=0; i--){
+                tbody.removeChild(tbody.children[i]);
+            }
+        }
+
+    </script>
+}
