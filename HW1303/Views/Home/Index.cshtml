@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a asp-action="CreateAddress">Create Address</a>
+<table class="table table-active">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Street</th>
+            <th>Building_no</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Addresses)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Country</td>
+                <td>@item.City</td>
+                <td>@item.Street</td>
+                <td>@item.Building_no</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<hr />
+<a asp-action="CreateBookInfo">Create Book</a>
+<table class="table table-active">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Authors</th>
+            <th>Publisher</th>
+            <th>Publisher address</th>
+            <th>Publish date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Books)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Book_title</td>
+                <td>@item.Authors</td>
+                <td>@item.Publishing_name</td>
+                <td>@item.address</td>
+                <td>@item.publishing_date</td>
+            </tr>
+        }
+    </tbody>
+</table>

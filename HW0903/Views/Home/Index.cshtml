@@ -45,11 +45,13 @@
 @section Scripts{
     <script>
         var intervalID = 0;
+        
         function Start(e){
             clearInterval(intervalID);
             LoadData(e);
             intervalID = setInterval(LoadData, 10000,e);
         }
+
         async function LoadData(e){
             let value = e.target.value;
             if (value==-1) return;

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "0HQ+SIjP3mWXNcyjppe8bi7K8UvWW+FSuhcuSl4z1RdI2vTvVjW/OT7KNxO9JPiVxoNimWYBbGDJWpeO1WlrgQ==",
+  "success": true,
+  "projectFilePath": "D:\\Studies\\Azure\\CW1303\\CW1303.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\monse\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\monse\\.nuget\\packages\\npgsql\\7.0.2\\npgsql.7.0.2.nupkg.sha512",
+    "C:\\Users\\monse\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
