@@ -1,0 +1,85 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HW1403
+build_property.RootNamespace = HW1403
+build_property.ProjectDir = D:\Studies\Azure\HW1403\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Studies\Azure\HW1403
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Studies/Azure/HW1403/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpCategories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBDYXRlZ29yaWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpCategories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBDYXRlZ29yaWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpCategories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBDYXRlZ29yaWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpCategories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBDYXRlZ29yaWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpCategories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBDYXRlZ29yaWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpGoods/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBHb29kc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpGoods/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBHb29kc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpGoods/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBHb29kc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpGoods/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBHb29kc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/mpGoods/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbXBHb29kc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studies/Azure/HW1403/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-xdbhbcwz2p

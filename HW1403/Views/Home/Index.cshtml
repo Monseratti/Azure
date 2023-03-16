@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a asp-action="Index" asp-controller="mpCategories">Categories</a><br />
+<a asp-action="Index" asp-controller="mpGoods">Goods</a>
+
+<hr/>
+@foreach (var item in ViewBag.Categories)
+{
+    <a class="btn btn-outline-secondary" 
+    asp-action="IndexByCategory" asp-controller="Home" asp-route-category="@item.Id">@item.Name</a>
+}
+<hr/>
+<hr/>
+<div class="row">
+@foreach(var item in ViewBag.Goods){
+    <div class="card col-2">
+        <b>@item.CategoryName</b><br/>
+        <div>@item.GoodName</div>
+        <a class="btn btn-primary" asp-action="Details" asp-controller="mpGoods" asp-route-id="@item.id">View</a>
+    </div>
+}
+</div>
