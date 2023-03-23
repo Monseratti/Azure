@@ -287,3 +287,16 @@ D:\Studies\Azure\HW1403\obj\Debug\net6.0\refint\HW1403.dll
 D:\Studies\Azure\HW1403\obj\Debug\net6.0\HW1403.pdb
 D:\Studies\Azure\HW1403\obj\Debug\net6.0\HW1403.genruntimeconfig.cache
 D:\Studies\Azure\HW1403\obj\Debug\net6.0\ref\HW1403.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Azure.Storage.Common.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Azure.Storage.Queues.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Microsoft.Azure.KeyVault.Core.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Microsoft.Azure.Storage.Blob.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Microsoft.Azure.Storage.Common.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Microsoft.Azure.WebJobs.Host.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Microsoft.Azure.WebJobs.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Microsoft.Azure.WebJobs.Extensions.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Microsoft.Azure.WebJobs.Extensions.Storage.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Microsoft.Azure.WebJobs.Host.Storage.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\NCrontab.Signed.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\System.IO.Hashing.dll
+D:\Studies\Azure\HW1403\bin\Debug\net6.0\Microsoft.WindowsAzure.Storage.dll
