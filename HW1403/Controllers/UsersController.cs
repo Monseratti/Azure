@@ -9,88 +9,89 @@ using HW1403.Models;
 
 namespace HW1403.Controllers
 {
-    public class mpGoodsController : Controller
+    public class UsersController : Controller
     {
         private readonly MpContext _context;
 
-        public mpGoodsController(MpContext context)
+        public UsersController(MpContext context)
         {
             _context = context;
         }
 
-        // GET: mpGoods
+        // GET: Users
         public async Task<IActionResult> Index()
         {
-              return _context.Goods != null ? 
-                          View(await _context.Goods.ToListAsync()) :
-                          Problem("Entity set 'MpContext.Goods'  is null.");
+              return _context.Users != null ? 
+                          View(await _context.Users.ToListAsync()) :
+                          Problem("Entity set 'MpContext.Users'  is null.");
         }
 
-        // GET: mpGoods/Details/5
+        // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Goods == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var mpGood = await _context.Goods
+            var user = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (mpGood == null)
+            if (user == null)
             {
                 return NotFound();
             }
-            ViewBag.MpCategory = (await _context.Categories.FindAsync(mpGood.MpCategoryId))!.Name;
-            return View(mpGood);
+
+            return View(user);
         }
 
-        // GET: mpGoods/Create
+        // GET: Users/Create
         public IActionResult Create()
         {
-            ViewBag.MpCategoryId = new SelectList(_context.Categories, "Id", "Name");
-            return View();
+			ViewBag.RoleId = new SelectList(_context.Roles, "Id", "Name");
+			return View();
         }
 
-        // POST: mpGoods/Create
+        // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,MpCategoryId")] mpGood mpGood)
+        public async Task<IActionResult> Create([Bind("Id,Name,Email,Password,RoleId")] User user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(mpGood);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(mpGood);
+            return View(user);
         }
 
-        // GET: mpGoods/Edit/5
+        // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Goods == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
-            var mpGood = await _context.Goods.FindAsync(id);
-            if (mpGood == null)
+
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            ViewBag.MpCategoryId = new SelectList(_context.Categories, "Id", "Name",mpGood.MpCategoryId);
-            return View(mpGood);
+            ViewBag.RoleId = new SelectList(_context.Categories, "Id", "Name", user.RoleId);
+            return View(user);
         }
 
-        // POST: mpGoods/Edit/5
+        // POST: Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,MpCategoryId")] mpGood mpGood)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,RoleId")] User user)
         {
-            if (id != mpGood.Id)
+            if (id != user.Id)
             {
                 return NotFound();
             }
@@ -99,12 +100,12 @@ namespace HW1403.Controllers
             {
                 try
                 {
-                    _context.Update(mpGood);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!mpGoodExists(mpGood.Id))
+                    if (!UserExists(user.Id))
                     {
                         return NotFound();
                     }
@@ -115,62 +116,49 @@ namespace HW1403.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(mpGood);
+            return View(user);
         }
 
-        // GET: mpGoods/Delete/5
+        // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Goods == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var mpGood = await _context.Goods
+            var user = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (mpGood == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(mpGood);
+            return View(user);
         }
 
-        // POST: mpGoods/Delete/5
+        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Goods == null)
+            if (_context.Users == null)
             {
-                return Problem("Entity set 'MpContext.Goods'  is null.");
+                return Problem("Entity set 'MpContext.Users'  is null.");
             }
-            var mpGood = await _context.Goods.FindAsync(id);
-            if (mpGood != null)
+            var user = await _context.Users.FindAsync(id);
+            if (user != null)
             {
-                _context.Goods.Remove(mpGood);
+                _context.Users.Remove(user);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool mpGoodExists(int id)
+        private bool UserExists(int id)
         {
-          return (_context.Goods?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Buy(int? id)
-        {
-            await QueueCT.AddData(
-                _context.Goods.Where(g=>g.Id.Equals(id)).ToList()
-                    .Join(_context.Categories,
-                    g=>g.MpCategoryId,
-                    c=>c.Id,
-                    (g, c) => new { g.Id, g.Name, category = c.Name })
-                    .First());
-            return RedirectToAction("Index", "Home");
+          return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

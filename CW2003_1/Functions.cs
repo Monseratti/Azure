@@ -10,7 +10,7 @@ namespace CW2003_1
 {
     public static class Functions
     {
-        public static void ProcessQueueMessage([QueueTrigger("test-queue")] string message, ILogger log)
+        public static void ProcessQueueMessage([QueueTrigger("orders")] string message, ILogger log)
         {
             log.LogInformation(message);
         }

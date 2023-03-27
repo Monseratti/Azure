@@ -17,10 +17,10 @@ namespace HW1403.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<mpCategory>().ToContainer("Categories");
-            modelBuilder.Entity<mpGood>().ToContainer("Goods");
-            modelBuilder.Entity<User>().ToContainer("Users");
-            modelBuilder.Entity<Role>().ToContainer("Roles");
+            //modelBuilder.Entity<mpCategory>().ToContainer("Categories");
+            //modelBuilder.Entity<mpGood>().ToContainer("Goods");
+            //modelBuilder.Entity<User>().ToContainer("Users");
+            //modelBuilder.Entity<Role>().ToContainer("Roles");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -25,6 +25,8 @@ namespace HW1403.Models
 		public static async Task AddData(object data)
 		{
 			var msg = JsonSerializer.Serialize(data);
+			msg = msg.Replace("{", "");
+			msg = msg.Replace("}", "");
 			await (await GetQueueClient()).SendMessageAsync(msg, timeToLive: new TimeSpan(0, 0, -1));
 		}
 
