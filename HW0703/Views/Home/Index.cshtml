@@ -14,6 +14,7 @@
                 <th>File</th>
                 <th>Date</th>
                 <th>Path</th>
+                <th>Tags</th>
                 <th>Operation</th>
             </tr>
         </thead>
@@ -24,6 +25,13 @@
                     <td>@item.name</td>
                     <td>@item.createdAt</td>
                     <td>@item.absolutePath</td>
+                    @foreach (var tags in ViewBag.FileTags)
+                    {
+                        if (tags.URL.Contains(item.absolutePath))
+                        {
+                            <td>@tags.Value</td>
+                        }
+                    }  
                     <td>
                         <form asp-action="Details" method="get" asp-route-id="@item.name">
                             <button class="btn btn-outline-info">View</button>

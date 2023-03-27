@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Storage.Blobs" Version="12.15.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.15.1" />
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="7.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="7.0.4" />
   </ItemGroup>
 
 </Project>

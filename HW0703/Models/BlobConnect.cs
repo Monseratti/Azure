@@ -6,8 +6,9 @@ namespace HW0703.Models
 {
 	public static class BlobConnect
 	{
-		static string conn = Environment.GetEnvironmentVariable("MONSERATTI_CONN_STR")!;
-		static BlobServiceClient blobServiceClient = new BlobServiceClient(conn);
+		static string conn = "DefaultEndpointsProtocol=https;AccountName=monseratti03;AccountKey=oB/V9O+kERNdX3rsOh8pvgSkyb1LrfBYCzvEncsxNXEcJA0wK1Cl648ZSyUzA2JNcvJAEngH1OB7+AStrrHB+w==;EndpointSuffix=core.windows.net";
+
+        static BlobServiceClient blobServiceClient = new BlobServiceClient(conn);
 		
 		static BlobContainerClient GetContainerClient() {
 			try
@@ -32,16 +33,22 @@ namespace HW0703.Models
 			}
 		}
 
-		public static async Task UploadFile(string filePath)
+		public static async Task<Image?> UploadFile(string filePath)
 		{
 			var fileName = Path.GetFileName(filePath);
 			var client = CreateContainer("home").GetBlobClient(fileName);
 			try
 			{
 				await client.UploadAsync(filePath);
-			}
+				return new Image()
+				{
+					Id = 0,
+					URL = client.Uri.ToString()
+				};
+            }
 			catch (Exception)
 			{
+				return null;
 			}
 		}
 
@@ -56,22 +63,28 @@ namespace HW0703.Models
 				{
 					await client.DownloadToAsync(fs);
 				}
-				//await client.DownloadToAsync(tmpPath);
             }
 			catch (Exception)
 			{
 			}
 		}
 
-        public static async Task DeleteFile(string fileName)
+        public static async Task<Image?> DeleteFile(string fileName)
         {
             try
             {
                 var client = CreateContainer("home").GetBlobClient(fileName);
+				var image = new Image()
+                {
+                    Id = 0,
+                    URL = client.Uri.ToString()
+                };
                 await client.DeleteAsync();
+				return image;
             }
             catch (Exception)
             {
+				return null;
             }
         }
 

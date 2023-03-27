@@ -245,8 +245,16 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\Studies\\Azure\\HW0703\\wwwroot\\tmp\\photo_2021-09-29_17-58-11.jpg",
-      "PackagePath": "staticwebassets\\tmp\\photo_2021-09-29_17-58-11.jpg"
+      "Id": "D:\\Studies\\Azure\\HW0703\\wwwroot\\tmp\\istockphoto-157103705-612x612.jpg",
+      "PackagePath": "staticwebassets\\tmp\\istockphoto-157103705-612x612.jpg"
+    },
+    {
+      "Id": "D:\\Studies\\Azure\\HW0703\\wwwroot\\tmp\\railway-hdr-1361893.jpg",
+      "PackagePath": "staticwebassets\\tmp\\railway-hdr-1361893.jpg"
+    },
+    {
+      "Id": "D:\\Studies\\Azure\\HW0703\\wwwroot\\tmp\\website.jpg",
+      "PackagePath": "staticwebassets\\tmp\\website.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.HW0703.Microsoft.AspNetCore.StaticWebAssets.props",

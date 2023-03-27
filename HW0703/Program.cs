@@ -1,7 +1,10 @@
+using HW0703.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ImageContext>();
 
 var app = builder.Build();
 

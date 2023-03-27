@@ -42,7 +42,15 @@
           "dependencies": {
             "Azure.Storage.Blobs": {
               "target": "Package",
-              "version": "[12.15.0, )"
+              "version": "[12.15.1, )"
+            },
+            "Microsoft.Azure.CognitiveServices.Vision.ComputerVision": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Cosmos": {
+              "target": "Package",
+              "version": "[7.0.4, )"
             }
           },
           "imports": [

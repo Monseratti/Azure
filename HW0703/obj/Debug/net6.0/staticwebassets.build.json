@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2yzwFx2GJTweWiE/VGejjXMDW4iSQOoqWn4/tNOsHYQ=",
+  "Hash": "f+CghGUQeLwGUMC7Wl1CAQPyXixjaS5zrcXdpWI+zLA=",
   "Source": "HW0703",
   "BasePath": "_content/HW0703",
   "Mode": "Default",
@@ -1071,12 +1071,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Studies\\Azure\\HW0703\\wwwroot\\tmp\\photo_2021-09-29_17-58-11.jpg",
+      "Identity": "D:\\Studies\\Azure\\HW0703\\wwwroot\\tmp\\istockphoto-157103705-612x612.jpg",
       "SourceId": "HW0703",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Studies\\Azure\\HW0703\\wwwroot\\",
       "BasePath": "_content/HW0703",
-      "RelativePath": "tmp/photo_2021-09-29_17-58-11.jpg",
+      "RelativePath": "tmp/istockphoto-157103705-612x612.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1085,7 +1085,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\tmp\\photo_2021-09-29_17-58-11.jpg"
+      "OriginalItemSpec": "wwwroot\\tmp\\istockphoto-157103705-612x612.jpg"
+    },
+    {
+      "Identity": "D:\\Studies\\Azure\\HW0703\\wwwroot\\tmp\\railway-hdr-1361893.jpg",
+      "SourceId": "HW0703",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Studies\\Azure\\HW0703\\wwwroot\\",
+      "BasePath": "_content/HW0703",
+      "RelativePath": "tmp/railway-hdr-1361893.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\tmp\\railway-hdr-1361893.jpg"
+    },
+    {
+      "Identity": "D:\\Studies\\Azure\\HW0703\\wwwroot\\tmp\\website.jpg",
+      "SourceId": "HW0703",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Studies\\Azure\\HW0703\\wwwroot\\",
+      "BasePath": "_content/HW0703",
+      "RelativePath": "tmp/website.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\tmp\\website.jpg"
     }
   ]
 }
