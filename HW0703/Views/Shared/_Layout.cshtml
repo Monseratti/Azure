@@ -28,6 +28,11 @@
                     </ul>
                 </div>
             </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div>@User.Identity.Name</div>
+                <a class="ms-3" asp-action="Logout" asp-controller="LogReg">Logout</a>
+            }
         </nav>
     </header>
     <div class="container">

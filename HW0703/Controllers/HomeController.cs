@@ -1,10 +1,13 @@
 ﻿using HW0703.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace HW0703.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         ImageContext _context;
@@ -40,10 +43,20 @@ namespace HW0703.Controllers
                 Directory.Delete(tmpPath, true);
                 if (image != null)
                 {
-
+                    if (await AIAnalyze.AnalyseByAdultContent(image.URL))
+                    {
+                        var user = await _context.Users.Where(u => u.Email.Equals(User.Identity.Name)).FirstAsync();
+                        if (user == null) return RedirectToAction("Index");
+                        user.IsBlocked = true;
+                        _context.Update(user);
+                        await _context.SaveChangesAsync();
+                        await BlobConnect.DeleteFile(files[0].FileName);
+                        return RedirectToAction("Warning", "LogReg");
+                    }
                     image.Id = (await _context.Images.ToListAsync()).Count == 0 ? 0 : (await _context.Images.ToListAsync()).Last().Id + 1;
                     _context.Images.Add(image);
                     await _context.SaveChangesAsync();
+
                     var tag = new Tag()
                     {
                         Id = (await _context.Tags.ToListAsync()).Count == 0 ? 0 : (await _context.Tags.ToListAsync()).Last().Id + 1,

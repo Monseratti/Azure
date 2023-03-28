@@ -1,0 +1,11 @@
+﻿@{
+}
+@model User
+
+<form method="post" asp-action="Registration" asp-controller="LogReg">
+	<input placeholder="name" asp-for="Name" />
+	<input type="email" placeholder="example@gmail.com" asp-for="Email" requared/>
+	<input type="password" asp-for="Password" requared />
+	<button class="btn btn-outline-success">Registration</button>
+</form>
+<a asp-action="Login" asp-controller="LogReg">Login</a>

@@ -104,5 +104,20 @@ namespace HW0703.Models
             }
             return result;
         }
+        public static async Task<bool> AnalyseByAdultContent(string uri)
+        {
+            bool result = false;
+            try
+            {
+                ImageAnalysis _analysis = await _client.AnalyzeImageAsync(uri, _visualTypes);
+                result = _analysis.Adult.IsAdultContent;
+                if (!result) result = _analysis.Adult.IsRacyContent;
+                if (!result) result = _analysis.Adult.IsGoryContent;
+            }
+            catch (Exception)
+            {
+            }
+            return result;
+        }
     }
 }

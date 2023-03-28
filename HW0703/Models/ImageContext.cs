@@ -6,6 +6,7 @@ namespace HW0703.Models
     {
         public DbSet<Image> Images { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<User>Users { get; set; }
 
         public ImageContext()
         {
@@ -14,8 +15,8 @@ namespace HW0703.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Image>().ToContainer("Image");
-            modelBuilder.Entity<Tag>().ToContainer("Tags");
+            //modelBuilder.Entity<Image>().ToContainer("Image");
+            //modelBuilder.Entity<Tag>().ToContainer("Tags");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

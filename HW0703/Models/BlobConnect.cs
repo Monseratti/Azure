@@ -25,7 +25,7 @@ namespace HW0703.Models
 		{
 			try
 			{
-				return blobServiceClient.CreateBlobContainer(containerName);
+				return blobServiceClient.CreateBlobContainer(containerName, PublicAccessType.Blob);
 			}
 			catch (Exception)
 			{
