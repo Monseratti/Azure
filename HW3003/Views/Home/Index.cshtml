@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="d-flex col-8">
+    <input class="form-control" id="url" type="text" placeholder="URL of picture with text..."></input>
+    <button class="btn btn-outline-secondary" onclick="Analyze()">Analyze</button>
+</div>
+
+<div class="d-flex">
+    <label>Autodetected language</label>
+    <input class="form-check form-check-input" value="true" type="checkbox" id="autoDetect" />
+</div>
+
+<div class="d-flex">
+    <div class="m-3">
+            <select id="from" class="form-control" onchange="Translate()"></select>
+        <textarea id="textfrom" rows="20" class="form-control" style="resize:none" oninput="Translate()"></textarea>
+    </div>
+    <div class="m-3">
+        <select id="to" class="form-control" onchange="Translate()"></select>
+        <textarea id="textto" rows="20" class="form-control" style="resize:none"></textarea>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            SetLang();
+        });
+
+        async function SetLang(){
+            let resp = await fetch("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0");
+            if(resp.ok){
+                let lang = await resp.json();
+                AddToSelect(lang.translation);
+            }
+        }
+        function AddToSelect(langs){
+            var selectFrom = document.getElementById("from");
+            var selectTo = document.getElementById("to");
+            for (const [key, value] of Object.entries(langs)){
+                var option = document.createElement("option");
+                option.value = key;
+                option.textContent = `${value.name} (${value.nativeName})`;
+                selectFrom.appendChild(option);
+            }
+            for (const [key, value] of Object.entries(langs)) {
+                var option = document.createElement("option");
+                option.value = key;
+                option.textContent = `${value.name} (${value.nativeName})`;
+                selectTo.appendChild(option);
+            }
+        }
+
+        async function Translate(){
+            var autoDetect = document.getElementById("autoDetect").checked;
+            var selectFrom = document.getElementById("from");
+            var selectTo = document.getElementById("to");
+            var textFrom = document.getElementById("textfrom");
+            var textTo = document.getElementById("textto");
+            if (textFrom.value == "") {
+                //selectFrom.value = "";
+                textTo.value = "";
+                return;
+            }
+            let request = {
+                From: autoDetect == false?selectFrom.value:"",
+                To: selectTo.value,
+                Text: textFrom.value
+            };
+            let response = await fetch("/Home/DetectLang",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(request)
+            });
+            if(response.ok){
+                let answ = await response.json();
+                if(answ.lang!=""){
+                    selectFrom.value = answ.lang;
+                }
+                selectFrom.style.backgroundColor = autoDetect == false ? "rgb(255,255,255)" : "rgb(153,255,153)";
+                textTo.value = answ.text;
+            }
+        }
+
+        async function Analyze(){
+            let uri = document.getElementById("url").value;
+            var textFrom = document.getElementById("textfrom");
+            let response = await fetch("/Home/AnalyzePicture", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(uri)
+            });
+            if (response.ok) {
+                let answ = await response.json();
+                if (answ.text != "") {
+                    textFrom.value = answ.text;
+                    Translate();
+                }
+            }
+        }
+    </script>
+}

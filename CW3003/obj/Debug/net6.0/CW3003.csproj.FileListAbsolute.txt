@@ -1,0 +1,15 @@
+D:\Studies\Azure\CW3003\bin\Debug\net6.0\CW3003.exe
+D:\Studies\Azure\CW3003\bin\Debug\net6.0\CW3003.deps.json
+D:\Studies\Azure\CW3003\bin\Debug\net6.0\CW3003.runtimeconfig.json
+D:\Studies\Azure\CW3003\bin\Debug\net6.0\CW3003.dll
+D:\Studies\Azure\CW3003\bin\Debug\net6.0\CW3003.pdb
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\CW3003.csproj.AssemblyReference.cache
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\CW3003.GeneratedMSBuildEditorConfig.editorconfig
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\CW3003.AssemblyInfoInputs.cache
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\CW3003.AssemblyInfo.cs
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\CW3003.csproj.CoreCompileInputs.cache
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\CW3003.dll
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\refint\CW3003.dll
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\CW3003.pdb
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\CW3003.genruntimeconfig.cache
+D:\Studies\Azure\CW3003\obj\Debug\net6.0\ref\CW3003.dll
